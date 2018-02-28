@@ -13,6 +13,7 @@
 </head>
 <body>
 <script>
+var oktaSignIn = new OktaSignIn({baseUrl: orgUrl});
   oktasignIn.session.get(function (res) {
   // Session exists, show logged in state.
   var redirectUrl = 'https://stark-forest-15689.herokuapp.com';
