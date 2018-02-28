@@ -13,7 +13,9 @@
 </head>
 <body>
 <script>
+var orgUrl = 'https://brandcast.okta.com';
 var oktaSignIn = new OktaSignIn({baseUrl: orgUrl});
+ var redirectUrl = 'https://stark-forest-15689.herokuapp.com';
   oktasignIn.session.get(function (res) {
   // Session exists, show logged in state.
   var redirectUrl = 'https://stark-forest-15689.herokuapp.com';
