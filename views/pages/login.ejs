@@ -12,6 +12,27 @@
   <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-theme.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<script>
+  oktasignIn.session.get(function (res) {
+  // Session exists, show logged in state.
+  var redirectUrl = 'https://stark-forest-15689.herokuapp.com';
+  if (res.status === 'ACTIVE') {
+    res.session.setCookieAndRedirect(redirectUrl);
+  }
+  // No session, or error retrieving the session. Render the Sign-In Widget.
+  else if (res.status === 'INACTIVE') {
+    signIn.renderEl(
+      {el: '#osw-container'},
+      function success(res) {
+        // showApp() if res.status === 'SUCCESS'
+      },
+      function error(err) {
+        // handleError(err)
+      }
+    );
+  }
+});
+</script>
   <!-- Render the login widget here -->
   <div id="okta-login-container"></div>
 
